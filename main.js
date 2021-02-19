@@ -1,8 +1,13 @@
 var mantraButton = document.querySelector('#mantra');
 var affButton = document.querySelector('#affirmation');
-var receiveMsgBtn =  document.querySelector('.button');
+var receiveMsgBtn =  document.querySelector('#receive-message');
 var message = document.querySelector('#message');
 var bellIcon = document.querySelector('#bell');
+var loginButton = document.querySelector('#login-button');
+var nameInput = document.querySelector('#login-box');
+var mainPage = document.querySelector('.main-page');
+var loginPage = document.querySelector('.login-page');
+var welcomeMsg = document.querySelector('#welcome-message');
 
 var mantras = [
   "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
@@ -38,7 +43,19 @@ var affirmations = [
   "I manifest perfect health by making smart choices.",
 ]
 
+nameInput.addEventListener('click', removeDefault);
+loginButton.addEventListener('click', enterSite);
 receiveMsgBtn.addEventListener('click', displayMessage);
+
+function removeDefault() {
+  nameInput.value = "";
+}
+function enterSite() {
+  var name = nameInput.value;
+  mainPage.classList.remove('hidden');
+  loginPage.classList.add('hidden');
+  welcomeMsg.innerText = `Hello, ${name}. Click below for some inspiration...`;
+}
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -51,5 +68,7 @@ function displayMessage() {
     message.innerText = affirmations[getRandomIndex(affirmations)];
   } else {
     return;
-  } bellIcon.classList.add('hidden');
+  }
+
+  bellIcon.classList.add('hidden');
 }
