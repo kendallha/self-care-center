@@ -68,7 +68,7 @@ input[type="text"] {
   margin-left: 20px;
 }
 
-#welcome-message {
+h2 {
   padding-top: 40px;
   font-size: 24px;
   margin-bottom: 20px;
@@ -135,6 +135,19 @@ input[type="text"] {
 #heart {
   width: 30px;
   margin-left: 730px;
+}
+
+ul {
+  margin-top: 100px;
+  list-style-type: none;
+}
+
+li {
+  padding: 25px 0;
+  font-size: 22px;
+}
+#return {
+  margin-top: 100px;
 }
 
 .hidden {
