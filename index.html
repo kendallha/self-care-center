@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <div class="login-page">
@@ -29,7 +30,13 @@
       <section class="message-display" id="message-display">
         <img id="bell" src="assets/meditate.svg"/>
         <p id="message"></p>
+        <button class="fav-button hidden">Favorite</button>
       </section>
+      <button class="view-favorites hidden">View Favorite Messages</button>
+    </div>
+    <div class="favorites-page hidden">
+      <h2 id="fav-messages">&#10024 Favorited Messages &#10024</h2>
+      <ul></ul>
     </div>
     <script type="text/javascript" src="main.js"></script>
   </body>
