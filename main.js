@@ -8,12 +8,13 @@ var nameInput = document.querySelector('#login-box');
 var mainPage = document.querySelector('.main-page');
 var loginPage = document.querySelector('.login-page');
 var welcomeMsg = document.querySelector('#welcome-message');
-var favButton = document.querySelector('.fav-button');
-var viewFavs = document.querySelector('.view-favorites');
+//var favButton = document.querySelector('#fav-button');
+var viewFavs = document.querySelector('#view-favorites');
 var favPage = document.querySelector('.favorites-page');
 var favsList = document.querySelector('ul');
-var returnButton = document.querySelector('.return');
-// var savedMessage = document.querySelector('li');
+var returnButton = document.querySelector('#return');
+var savedHeader = document.querySelector('#fav-messages');
+var heart = document.querySelector('#heart');
 
 var mantras = [
   "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
@@ -54,7 +55,7 @@ var savedMsgs = [];
 nameInput.addEventListener('click', removeDefault);
 loginButton.addEventListener('click', enterSite);
 receiveMsgBtn.addEventListener('click', displayMessage);
-favButton.addEventListener('click', saveMsg);
+heart.addEventListener('click', saveMsg);
 viewFavs.addEventListener('click', viewFavPage);
 returnButton.addEventListener('click', returnToMain);
 favPage.addEventListener('dblclick', removeMsg);
@@ -82,7 +83,7 @@ function displayMessage() {
     return;
   }
   bellIcon.classList.add('hidden');
-  favButton.classList.remove('hidden');
+  heart.classList.remove('hidden');
 }
 
 function saveMsg() {
@@ -94,8 +95,10 @@ function saveMsg() {
 }
 
 function viewFavPage() {
+  var name = nameInput.value;
   mainPage.classList.add('hidden');
   favPage.classList.remove('hidden');
+  savedHeader.innerText = `${name}'s Favorite Messages`
   favsList.innerHTML = '<ul></ul>';
   for (var i = 0; i < savedMsgs.length; i++) {
     favsList.insertAdjacentHTML(`beforeend`, `<li id=${i}>${savedMsgs[i]}</li>`);
@@ -103,7 +106,6 @@ function viewFavPage() {
 }
 
 function returnToMain() {
-  console.log('clickpage')
   favPage.classList.add('hidden');
   mainPage.classList.remove('hidden');
 }

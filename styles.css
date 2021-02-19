@@ -127,6 +127,16 @@ input[type="text"] {
   font-size: 24px;
 }
 
+#view-favorites {
+  margin-top: 25px;
+  width: 225px;
+}
+
+#heart {
+  width: 30px;
+  margin-left: 730px;
+}
+
 .hidden {
   display: none;
 }

@@ -30,13 +30,15 @@
       <section class="message-display" id="message-display">
         <img id="bell" src="assets/meditate.svg"/>
         <p id="message"></p>
-        <button class="fav-button hidden">Favorite</button>
+        <button id ="fav-button" class="button hidden">Favorite</button>
+        <input id="heart" type="image" class ="hidden" src="https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png" />
       </section>
-      <button class="view-favorites hidden">View Favorite Messages</button>
+      <button id="view-favorites" class="button hidden">View Favorite Messages</button>
     </div>
     <div class="favorites-page hidden">
-      <h2 id="fav-messages">&#10024 Favorited Messages &#10024</h2>
+      <h2 id="fav-messages"></h2>
       <ul></ul>
+      <button id="return" class="button">Return To Main Page</button>
     </div>
     <script type="text/javascript" src="main.js"></script>
   </body>
