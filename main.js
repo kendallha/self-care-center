@@ -8,7 +8,6 @@ var nameInput = document.querySelector('#login-box');
 var mainPage = document.querySelector('.main-page');
 var loginPage = document.querySelector('.login-page');
 var welcomeMsg = document.querySelector('#welcome-message');
-//var favButton = document.querySelector('#fav-button');
 var viewFavs = document.querySelector('#view-favorites');
 var favPage = document.querySelector('.favorites-page');
 var favsList = document.querySelector('ul');
@@ -89,7 +88,6 @@ function displayMessage() {
 function saveMsg() {
   if (!savedMsgs.includes(message.innerText)) {
   savedMsgs.push(message.innerText);
-  console.log(savedMsgs);
   viewFavs.classList.remove('hidden');
 }
 }
