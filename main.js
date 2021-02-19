@@ -10,10 +10,14 @@ var loginPage = document.querySelector('.login-page');
 var welcomeMsg = document.querySelector('#welcome-message');
 var favButton = document.querySelector('.fav-button');
 var viewFavs = document.querySelector('.view-favorites');
+var favPage = document.querySelector('.favorites-page');
+var favsList = document.querySelector('ul');
+var returnButton = document.querySelector('.return');
+// var savedMessage = document.querySelector('li');
 
 var mantras = [
   "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
-  "Don’t let yesterday take up too much of today.",
+  "Do not let yesterday take up too much of today.",
   "Every day is a second chance.",
   "Tell the truth and love everyone.",
   "I am free from sadness.",
@@ -51,6 +55,9 @@ nameInput.addEventListener('click', removeDefault);
 loginButton.addEventListener('click', enterSite);
 receiveMsgBtn.addEventListener('click', displayMessage);
 favButton.addEventListener('click', saveMsg);
+viewFavs.addEventListener('click', viewFavPage);
+returnButton.addEventListener('click', returnToMain);
+favPage.addEventListener('dblclick', removeMsg);
 
 function removeDefault() {
   nameInput.value = "";
@@ -79,7 +86,30 @@ function displayMessage() {
 }
 
 function saveMsg() {
+  if (!savedMsgs.includes(message.innerText)) {
   savedMsgs.push(message.innerText);
   console.log(savedMsgs);
   viewFavs.classList.remove('hidden');
+}
+}
+
+function viewFavPage() {
+  mainPage.classList.add('hidden');
+  favPage.classList.remove('hidden');
+  favsList.innerHTML = '<ul></ul>';
+  for (var i = 0; i < savedMsgs.length; i++) {
+    favsList.insertAdjacentHTML(`beforeend`, `<li id=${i}>${savedMsgs[i]}</li>`);
+  }
+}
+
+function returnToMain() {
+  console.log('clickpage')
+  favPage.classList.add('hidden');
+  mainPage.classList.remove('hidden');
+}
+
+function removeMsg(event) {
+  var i = event.target.id;
+    savedMsgs.splice(i,1);
+  viewFavPage();
 }
