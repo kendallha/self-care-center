@@ -8,6 +8,8 @@ var nameInput = document.querySelector('#login-box');
 var mainPage = document.querySelector('.main-page');
 var loginPage = document.querySelector('.login-page');
 var welcomeMsg = document.querySelector('#welcome-message');
+var favButton = document.querySelector('.fav-button');
+var viewFavs = document.querySelector('.view-favorites');
 
 var mantras = [
   "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
@@ -43,9 +45,12 @@ var affirmations = [
   "I manifest perfect health by making smart choices.",
 ]
 
+var savedMsgs = [];
+
 nameInput.addEventListener('click', removeDefault);
 loginButton.addEventListener('click', enterSite);
 receiveMsgBtn.addEventListener('click', displayMessage);
+favButton.addEventListener('click', saveMsg);
 
 function removeDefault() {
   nameInput.value = "";
@@ -69,6 +74,12 @@ function displayMessage() {
   } else {
     return;
   }
-
   bellIcon.classList.add('hidden');
+  favButton.classList.remove('hidden');
+}
+
+function saveMsg() {
+  savedMsgs.push(message.innerText);
+  console.log(savedMsgs);
+  viewFavs.classList.remove('hidden');
 }
