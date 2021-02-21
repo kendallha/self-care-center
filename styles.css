@@ -68,7 +68,7 @@ input[type="text"] {
   margin-left: 20px;
 }
 
-#welcome-message {
+h2 {
   padding-top: 40px;
   font-size: 24px;
   margin-bottom: 20px;
@@ -125,6 +125,29 @@ input[type="text"] {
   color: #000000;
   font-style: italic;
   font-size: 24px;
+}
+
+#view-favorites {
+  margin-top: 25px;
+  width: 225px;
+}
+
+#heart {
+  width: 30px;
+  margin-left: 730px;
+}
+
+ul {
+  margin-top: 100px;
+  list-style-type: none;
+}
+
+li {
+  padding: 25px 0;
+  font-size: 22px;
+}
+#return {
+  margin-top: 100px;
 }
 
 .hidden {

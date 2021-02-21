@@ -8,10 +8,16 @@ var nameInput = document.querySelector('#login-box');
 var mainPage = document.querySelector('.main-page');
 var loginPage = document.querySelector('.login-page');
 var welcomeMsg = document.querySelector('#welcome-message');
+var viewFavs = document.querySelector('#view-favorites');
+var favPage = document.querySelector('.favorites-page');
+var favsList = document.querySelector('ul');
+var returnButton = document.querySelector('#return');
+var savedHeader = document.querySelector('#fav-messages');
+var heart = document.querySelector('#heart');
 
 var mantras = [
   "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
-  "Don’t let yesterday take up too much of today.",
+  "Do not let yesterday take up too much of today.",
   "Every day is a second chance.",
   "Tell the truth and love everyone.",
   "I am free from sadness.",
@@ -43,9 +49,15 @@ var affirmations = [
   "I manifest perfect health by making smart choices.",
 ]
 
+var savedMsgs = [];
+
 nameInput.addEventListener('click', removeDefault);
 loginButton.addEventListener('click', enterSite);
 receiveMsgBtn.addEventListener('click', displayMessage);
+heart.addEventListener('click', saveMsg);
+viewFavs.addEventListener('click', viewFavPage);
+returnButton.addEventListener('click', returnToMain);
+favPage.addEventListener('dblclick', removeMsg);
 
 function removeDefault() {
   nameInput.value = "";
@@ -69,6 +81,35 @@ function displayMessage() {
   } else {
     return;
   }
-
   bellIcon.classList.add('hidden');
+  heart.classList.remove('hidden');
+}
+
+function saveMsg() {
+  if (!savedMsgs.includes(message.innerText)) {
+  savedMsgs.push(message.innerText);
+  viewFavs.classList.remove('hidden');
+}
+}
+
+function viewFavPage() {
+  var name = nameInput.value;
+  mainPage.classList.add('hidden');
+  favPage.classList.remove('hidden');
+  savedHeader.innerText = `${name}'s Favorite Messages`
+  favsList.innerHTML = '<ul></ul>';
+  for (var i = 0; i < savedMsgs.length; i++) {
+    favsList.insertAdjacentHTML(`beforeend`, `<li id=${i}>${savedMsgs[i]}</li>`);
+  }
+}
+
+function returnToMain() {
+  favPage.classList.add('hidden');
+  mainPage.classList.remove('hidden');
+}
+
+function removeMsg(event) {
+  var i = event.target.id;
+    savedMsgs.splice(i,1);
+  viewFavPage();
 }
