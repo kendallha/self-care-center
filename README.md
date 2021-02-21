@@ -43,9 +43,11 @@ The spec for this project can be found [here](https://frontend.turing.io/project
   * `HTML`
   * `CSS`
 
-## Functionality Goals
+## Functionality
 
-  * A user is greeted with a log in page, on which they can enter their name to enter the site. After entering a name and clicking 'submit', the main page is shown. On the main page, the user receives a personalized greeting using the name they entered, and can select to receive either an affirmation or a mantra. The user can use the heart icon to favorite a message, and after a message has been favorited a button appears to navigate to the favorited messages section. By double-clicking a message in the favorites section, a user can delete a favorited message.
+  * A user is greeted with a log in page, on which they can enter their name to enter the site. If the form is left blank, the greeting will replace the name with "beautiful". After entering a name and clicking 'submit', the main page is shown.
+  * On the main page, the user receives a personalized greeting using the name they entered, and can select to receive either an affirmation or a mantra. The user can use the heart icon to favorite a message if it has not been saved yet.
+  * After a message has been favorited a button appears to navigate to the favorited messages section. By double-clicking a message in the favorites section, a user can delete a favorited message. There is a button to navigate back to the main page.
 
 ## Road Map
 
@@ -54,5 +56,17 @@ The spec for this project can be found [here](https://frontend.turing.io/project
   * A user doesn't see any repeat messages until they have viewed each message at least once.
   * Users should be able to add or finely edit messages on the favorites page.
 
-
 ## Preview
+
+<p align="left">Login Page</br>
+ <img width="1000" height="500" src="./assets/Self-Care Preview/LoginPage.png">
+</p>
+<p align="left">Main Page</br>
+ <img width="1000" height="500" src="./assets/Self-Care Preview/MainPage.png">
+</p>
+<p align="left">View and Save Messages</br>
+ <img width="1000" height="500" src="./assets/Self-Care Preview/Message_Favorite_Display.png">
+</p>
+<p align="left">Saved Messages</br>
+ <img width="1000" height="500" src="./assets/Self-Care Preview/FavoritesPage.png">
+</p>
